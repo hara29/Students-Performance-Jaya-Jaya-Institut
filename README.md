@@ -1,0 +1,119 @@
+# Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech
+
+## Business Understanding
+Jaya Jaya Institut merupakan institusi pendidikan tinggi yang telah berdiri sejak tahun 2000 dan memiliki reputasi yang baik dalam menghasilkan lulusan berkualitas. Namun demikian, dalam perjalanannya, institusi ini menghadapi tantangan signifikan berupa tingginya angka mahasiswa yang mengalami dropout (tidak menyelesaikan pendidikan).
+
+Masalah dropout ini tidak hanya berdampak pada citra institusi tetapi juga secara langsung memengaruhi efektivitas dan efisiensi operasional pendidikan. Oleh karena itu, Jaya Jaya Institut berkomitmen untuk mendeteksi potensi mahasiswa yang akan dropout sejak dini agar bisa diberikan intervensi atau bimbingan lebih lanjut.
+
+### Permasalahan Bisnis
+Permasalahan bisnis yang diidentifikasi dalam proyek ini antara lain:
+- Tingginya jumlah mahasiswa yang dropout setiap tahunnya.
+- Tidak adanya sistem deteksi dini untuk memprediksi risiko dropout.
+- Kurangnya data visualisasi untuk memahami faktor-faktor penyebab dropout.
+- Keterbatasan dalam pengambilan keputusan berbasis data.
+
+### Cakupan Proyek
+Proyek ini akan mencakup beberapa bagian utama sebagai berikut:
+- Pembuatan sistem visualisasi data (dashboard) untuk memberikan insight terkait mahasiswa dropout.
+- Pengembangan model machine learning untuk memprediksi mahasiswa yang berisiko dropout.
+- Implementasi prototipe sistem prediksi berbasis web menggunakan Streamlit.
+- Rekomendasi actionable untuk institusi guna menanggulangi masalah dropout.
+
+### Persiapan
+
+Sumber data: [Predict Students' Dropout and Academic Success](https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success)
+
+📦 Setup Environment
+**Opsi 1: Menggunakan anaconda**
+```
+conda create --name attrition-analysis python=3.9
+conda activate attrition-analysis
+pip install -r requirements.txt
+```
+**Opsi 2: Menggunakan Shell/Terminal**
+```
+pip install pipenv
+pipenv install
+pipenv shell
+pip install -r requirements.txt
+```
+
+### 🐳 Menjalankan Metabase Menggunakan Docker
+Untuk memudahkan proses setup, Metabase dapat dijalankan menggunakan Docker. Ikuti langkah-langkah berikut:
+
+1. Install Docker
+   Unduh dan instal Docker sesuai sistem operasi Anda dari: https://www.docker.com/products/docker-desktop
+2. Unduh Image Metabase
+   Gunakan perintah berikut untuk mengunduh image Metabase versi 0.46.4:
+   ```
+   docker pull metabase/metabase:v0.46.4
+   ```
+3. Jalankan Container Metabase
+   Gunakan perintah berikut untuk menjalankan Metabase dan menyimpan file database internal di folder lokal metabase-data:
+   ```
+   docker run -d -p 3000:3000 --name metabase \
+   -v $PWD/metabase-data:/metabase-data \
+   -e "MB_DB_FILE=/metabase-data/metabase.db" \
+   metabase/metabase:v0.46.4
+   ```
+   Penjelasan:
+
+   -v $PWD/metabase-data:/metabase-data: Menyimpan file konfigurasi Metabase secara lokal.
+
+    -e "MB_DB_FILE=/metabase-data/metabase.db": Memberitahu Metabase untuk menyimpan database internal di lokasi tersebut.
+
+4. Akses Metabase
+   Buka browser dan akses Metabase pada URL berikut [](http://localhost:3000/setup)
+
+   Gunakan akun login berikut:
+   - Email: root@mail.com
+   - Password: root123
+
+5. Menghubungkan Metabase ke Supabase (PostgreSQL Cloud)
+   Setelah login, pilih opsi untuk menambahkan database dan isi form koneksi berikut:
+
+   - Database Type: PostgreSQL
+   - Name: Supabase Attrition DB
+   - Host: aws-0-ap-southeast-1.pooler.supabase.com
+   - Port: 6543
+   - Database Name: postgres
+   - Username: postgres.kvcyzcbzhvxaxoorgwjz
+   - Password: P82GkzdJEHx86cnk
+
+   Klik Next dan tunggu hingga koneksi berhasil.
+
+6. Lihat Dashboard 'Student Performance Dashboard'.
+
+
+## Business Dashboard
+Dashboard ini dirancang untuk menganalisis faktor-faktor penyebab mahasiswa dropout. Komponen utama dari dashboard ini meliputi:
+1. Ringkasan umum yang menampilkan jumlah mahasiswa berdasarkan statusnya (Dropout, Graduate, Enrolled).
+   <img width="1439" alt="Screenshot 2025-05-24 at 21 34 44" src="https://github.com/user-attachments/assets/b3016f66-c066-4aaa-8400-f2d9fcedd7e9" />
+
+2. Karakteristik dan Kinerja Akademik yang menampilkan Average Admission Grade (Rata-rata nilai masuk), Average 1st and 2nd semester grade (Rata-rata nilai semester 1 dan 2), dan Average of Curricular units 1st and 2nd semester approved (Rata-rata sks semester 1 dan 2).
+   <img width="1440" alt="Screenshot 2025-05-24 at 21 35 08" src="https://github.com/user-attachments/assets/5cda3b2e-bdcc-4711-ab9a-940482f2fbde" />
+
+3. Analisis demografi yang menampilkan gender, status pernikahan, dan umur saat mendaftar.
+   <img width="1440" alt="Screenshot 2025-05-24 at 21 32 40" src="https://github.com/user-attachments/assets/41f5776c-4727-4d2b-8a36-c69506526108" />
+   <img width="1440" alt="Screenshot 2025-05-24 at 21 33 03" src="https://github.com/user-attachments/assets/74f63e97-07e3-4607-96ca-a79e584aadb7" />
+
+4. Faktor sosial ekonomi yang meliputi Debtor (berhutang atau tidak), Scholarship holder (pemegang beasiswa atau tidak), dan Tuition fees up to date (Pembayaran kuliah terkini).
+   <img width="1440" alt="Screenshot 2025-05-24 at 21 33 27" src="https://github.com/user-attachments/assets/7e604f7e-e4c9-448b-8171-9f8bad1f1cba" />
+
+5. Faktor eksternal (makroekonomi) yang meliputi tingkat pengangguran dan rata - rata GDP.
+    <img width="1440" alt="Screenshot 2025-05-24 at 21 33 47" src="https://github.com/user-attachments/assets/163d1ad3-0918-4705-8ee5-34b379f788a2" />
+
+## Menjalankan Sistem Machine Learning
+Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
+
+```
+
+```
+
+## Conclusion
+Jelaskan konklusi dari proyek yang dikerjakan.
+
+### Rekomendasi Action Items
+Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
+- action item 1
+- action item 2
