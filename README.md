@@ -111,9 +111,34 @@ Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Se
 ```
 
 ## Conclusion
-Jelaskan konklusi dari proyek yang dikerjakan.
+📊 Dashboard
+Dari dashboard yang telah dibuat, terdapat beberapa poin penting yang dapat disimpulkan:
+1. Total mahasiswa dropout adalah 32.1% dari total 4.224 mahasiswa.
+2. Rata rata nilai pada semester 1 dan semester 2 menunjukkan bahwa mahasiswa dropout memiliki rata - rata paling rendah, yaitu 7.26 pada semester 1 dan 5.9 pada semester 2. Selain itu, rata - rata sks yang diberikan pada semester 1 dan semester 2 untuk mahasiswa dropout hanya 1-3 sks, sedangkan untuk mahasiswa terdaftar 4 sks dan mahasiswa lulus 6 sks.
+3. Usia saat pendaftaran 26 tahun keatas didominasi oleh mahasiswa yang dropout.
+4. Mahasiswa yang dropout 32.16% nya tidak membayar uang kuliah terkini.
+5. Mahasiswa yang dropout memiliki rata-rata GDP -0.15.
+
+🤖 Model ML
+Berdasarkan eksperimen dengan tiga model (Random Forest, Logistic Regression, dan SVM), didapatkan bahwa model Support Vector Machine (SVM) memberikan performa terbaik dengan akurasi 86.33% dan f1-score tertinggi untuk kelas dropout. Sistem ini dapat mendeteksi mahasiswa berisiko tinggi dengan cukup baik dan dapat menjadi alat bantu intervensi dini.
 
 ### Rekomendasi Action Items
 Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
-- action item 1
-- action item 2
+
+1. Pemantauan Mahasiswa Risiko Tinggi Berdasarkan Indikator KunciGunakan dashboard untuk secara aktif memantau mahasiswa dengan karakteristik yang sering muncul pada kelompok dropout, seperti:
+   - Nilai rendah pada semester 1 dan 2
+   - Tidak membayar uang kuliah tepat waktu
+   - Tidak menerima beasiswa
+   - Usia lebih tua saat pendaftaran
+   Fokus pada mahasiswa dengan kombinasi faktor ini untuk prioritas bimbingan.
+
+2. Peningkatan Layanan Akademik dan Keuangan untuk Mahasiswa Berisiko
+   - Berikan dukungan akademik tambahan (seperti remedial, tutoring, atau pembimbingan belajar) bagi mahasiswa dengan performa akademik rendah.
+   - Evaluasi dan permudah akses bantuan keuangan atau beasiswa bagi mahasiswa yang tidak mampu, karena keterlambatan pembayaran muncul sebagai indikator dropout.
+
+3. Konseling Terarah Berdasarkan Output Prediksi
+   Implementasikan sesi konseling terjadwal bagi mahasiswa yang diprediksi berisiko dropout oleh model. Petakan intervensi berdasarkan tingkat probabilitas dropout yang dihasilkan model untuk memastikan pendekatan yang sesuai.
+
+4. Pembuatan Sistem Early Warning Otomatis
+   Kembangkan modul notifikasi atau dashboard khusus untuk bagian kemahasiswaan yang secara otomatis menampilkan mahasiswa dengan skor risiko dropout tinggi setiap awal semester.
+
