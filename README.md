@@ -38,7 +38,7 @@ pipenv shell
 pip install -r requirements.txt
 ```
 
-### 🐳 Menjalankan Metabase Menggunakan Docker
+**🐳 Menjalankan Metabase Menggunakan Docker**
 Untuk memudahkan proses setup, Metabase dapat dijalankan menggunakan Docker. Ikuti langkah-langkah berikut:
 
 1. Install Docker
@@ -83,7 +83,28 @@ Untuk memudahkan proses setup, Metabase dapat dijalankan menggunakan Docker. Iku
    Klik Next dan tunggu hingga koneksi berhasil.
 
 6. Lihat Dashboard 'Student Performance Dashboard'.
+   
 
+**⚙️ Setup Sistem Prediksi Dropout secara Lokal (Streamlit)**
+1.  Pastikan Python 3 sudah terinstal.
+2.  Instal pustaka tambahan (jika belum):
+    ```bash
+    pip install pandas scikit-learn streamlit joblib
+    ```
+3.  Pastikan file berikut tersedia dalam di direktori kerja Anda:
+   - app.py → Aplikasi Streamlit
+   - dropout_model.pkl → File model SVM yang sudah dilatih
+   - scaler.pkl → StandardScaler untuk preprocessing data
+   - label_encoder.pkl → Label Encoder untuk preprocessing data
+   - selected_columns.pkl → Nama-nama kolom fitur
+4.  Jalankan aplikasi Streamlit:
+   ```
+   streamlit run app.py
+   ```
+5. Akses aplikasi via browser di alamat:
+   ```
+   http://localhost:8501
+   ```
 
 ## Business Dashboard
 Dashboard ini dirancang untuk menganalisis faktor-faktor penyebab mahasiswa dropout. Komponen utama dari dashboard ini meliputi:
@@ -104,10 +125,23 @@ Dashboard ini dirancang untuk menganalisis faktor-faktor penyebab mahasiswa drop
     <img width="1440" alt="Screenshot 2025-05-24 at 21 33 47" src="https://github.com/user-attachments/assets/163d1ad3-0918-4705-8ee5-34b379f788a2" />
 
 ## Menjalankan Sistem Machine Learning
-Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
+Sistem prediksi dibangun menggunakan Python dengan model klasifikasi terbaik (SVM) berdasarkan evaluasi akurasi dan f1-score. Input fitur dapat dimasukkan oleh pengguna melalui antarmuka web Streamlit. Fitur yang dimasukkan antara lain: 
+- Application Mode
+- Debtor: Ya/ Tidak
+- Tuition Fees Up to Date: Ya/ Tidak
+- Gender: Laki-laki/ perempuan
+- Penerima Beasiswa: Ya/ Tidak
+- Usia saat mendaftar
+- Mata kuliah disetujui semester 1
+- Nilai rata-rata semester 1
+- Mata kuliah disetujui semester 2
+- Nilai rata-rata semester 2
 
+Untuk menjalankan aplikasi prediksi dapat mengunjungi **Link ini:** [Link Streamlit App](https://students-performance-jaya-jaya-institut-9huucrgcgyawvxfwq5wwgw.streamlit.app/)
+
+Untuk menjalankan secara lokal
 ```
-
+streamlit run app.py
 ```
 
 ## Conclusion
