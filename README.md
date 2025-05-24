@@ -159,20 +159,24 @@ Berdasarkan eksperimen dengan tiga model (Random Forest, Logistic Regression, da
 ### Rekomendasi Action Items
 Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
 
-1. Pemantauan Mahasiswa Risiko Tinggi Berdasarkan Indikator KunciGunakan dashboard untuk secara aktif memantau mahasiswa dengan karakteristik yang sering muncul pada kelompok dropout, seperti:
+1. Pemantauan Mahasiswa Risiko Tinggi Berdasarkan Indikator Kunci
+
+Gunakan dashboard untuk secara aktif memantau mahasiswa dengan karakteristik yang sering muncul pada kelompok dropout, seperti:
    - Nilai rendah pada semester 1 dan 2
    - Tidak membayar uang kuliah tepat waktu
    - Tidak menerima beasiswa
    - Usia lebih tua saat pendaftaran
    Fokus pada mahasiswa dengan kombinasi faktor ini untuk prioritas bimbingan.
 
-2. Peningkatan Layanan Akademik dan Keuangan untuk Mahasiswa Berisiko
+3. Peningkatan Layanan Akademik dan Keuangan untuk Mahasiswa Berisiko
    - Berikan dukungan akademik tambahan (seperti remedial, tutoring, atau pembimbingan belajar) bagi mahasiswa dengan performa akademik rendah.
    - Evaluasi dan permudah akses bantuan keuangan atau beasiswa bagi mahasiswa yang tidak mampu, karena keterlambatan pembayaran muncul sebagai indikator dropout.
 
-3. Konseling Terarah Berdasarkan Output Prediksi
-   Implementasikan sesi konseling terjadwal bagi mahasiswa yang diprediksi berisiko dropout oleh model. Petakan intervensi berdasarkan tingkat probabilitas dropout yang dihasilkan model untuk memastikan pendekatan yang sesuai.
+4. Konseling Terarah Berdasarkan Output Prediksi
 
-4. Pembuatan Sistem Early Warning Otomatis
-   Kembangkan modul notifikasi atau dashboard khusus untuk bagian kemahasiswaan yang secara otomatis menampilkan mahasiswa dengan skor risiko dropout tinggi setiap awal semester.
+Implementasikan sesi konseling terjadwal bagi mahasiswa yang diprediksi berisiko dropout oleh model. Petakan intervensi berdasarkan tingkat probabilitas dropout yang dihasilkan model untuk memastikan pendekatan yang sesuai.
+
+5. Pembuatan Sistem Early Warning Otomatis
+
+Kembangkan modul notifikasi atau dashboard khusus untuk bagian kemahasiswaan yang secara otomatis menampilkan mahasiswa dengan skor risiko dropout tinggi setiap awal semester.
 
